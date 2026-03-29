@@ -1,0 +1,8 @@
+schema: spec-driven
+name: manual-dark-left-sidebar
+status: ready-to-apply
+artifacts:
+  proposal: { path: proposal.md, status: done }
+  design: { path: design.md, status: done }
+  specs: { path: specs/app-shell/spec.md, status: done }
+  tasks: { path: tasks.md, status: done }
