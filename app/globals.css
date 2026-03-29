@@ -4,6 +4,26 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-page: #f0f0f0;
+  --bg-elevated: #ffffff;
+  --border-default: #e8e8e8;
+  --text-primary: #1f1f1f;
+  --text-secondary: #262626;
+  --text-muted: #434343;
+  --accent-soft-bg: #e6f4ff;
+}
+
+.dark {
+  --bg-page: #141414;
+  --bg-elevated: #1f1f1f;
+  --border-default: #303030;
+  --text-primary: rgba(255, 255, 255, 0.88);
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.65);
+  --accent-soft-bg: rgba(22, 119, 255, 0.12);
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,27 +31,11 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #F5F5F5;
-  color: #1F1F1F;
+  font-family: 'Noto Sans SC', 'Noto Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-/* ── 响应式导航 ──────────────────────────────── */
-@media (max-width: 768px) {
-  .hidden-mobile {
-    display: none !important;
-  }
-  .show-mobile {
-    display: flex !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .show-mobile {
-    display: none !important;
-  }
 }
 
 /* ── 文章卡片动效 ────────────────────────────── */
@@ -40,39 +44,43 @@ body {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12) !important;
 }
 
+.dark .post-card:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
 .post-card:hover .post-card-image {
   transform: scale(1.05);
 }
 
 .post-card:hover .post-card-title {
-  color: #1677FF !important;
+  color: #1677ff !important;
 }
 
 /* ── 侧边栏链接 ─────────────────────────────── */
 .sidebar-link:hover span {
-  color: #1677FF;
+  color: #1677ff;
 }
 
 /* ── 文章内容排版 ────────────────────────────── */
 .post-content {
   font-size: 16px;
   line-height: 1.8;
-  color: #262626;
+  color: var(--text-secondary);
 }
 
 .post-content h2 {
   font-size: 22px;
   font-weight: 600;
-  color: #1F1F1F;
+  color: var(--text-primary);
   margin: 32px 0 16px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #E6F4FF;
+  border-bottom: 2px solid var(--accent-soft-bg);
 }
 
 .post-content h3 {
   font-size: 18px;
   font-weight: 600;
-  color: #1F1F1F;
+  color: var(--text-primary);
   margin: 24px 0 12px;
 }
 
@@ -81,12 +89,17 @@ body {
 }
 
 .post-content code {
-  background: #F5F5F5;
+  background: var(--bg-elevated);
   padding: 2px 6px;
   border-radius: 4px;
+  border: 1px solid var(--border-default);
   font-family: 'Fira Code', 'Cascadia Code', Consolas, monospace;
   font-size: 14px;
-  color: #D4380D;
+  color: #d4380d;
+}
+
+.dark .post-content code {
+  color: #ff9c6e;
 }
 
 .post-content pre {
@@ -100,8 +113,9 @@ body {
 
 .post-content pre code {
   background: none;
+  border: none;
   padding: 0;
-  color: #ABB2BF;
+  color: #abb2bf;
   font-size: 14px;
 }
 
@@ -116,17 +130,17 @@ body {
 }
 
 .post-content strong {
-  color: #1F1F1F;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .post-content blockquote {
-  border-left: 4px solid #1677FF;
-  background: #E6F4FF;
+  border-left: 4px solid #1677ff;
+  background: var(--accent-soft-bg);
   padding: 12px 16px;
   border-radius: 0 8px 8px 0;
   margin: 16px 0;
-  color: #434343;
+  color: var(--text-muted);
 }
 
 .post-content table {
@@ -137,26 +151,22 @@ body {
 }
 
 .post-content th {
-  background: #F5F5F5;
+  background: var(--bg-elevated);
   padding: 10px 16px;
   text-align: left;
   font-weight: 600;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--border-default);
 }
 
 .post-content td {
   padding: 10px 16px;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--border-default);
 }
 
 /* ── Ant Design 微调 ────────────────────────── */
 .ant-card-head {
   font-size: 15px !important;
   font-weight: 600 !important;
-}
-
-.ant-menu-horizontal {
-  line-height: 62px !important;
 }
 
 /* ── 页面过渡 ────────────────────────────────── */
